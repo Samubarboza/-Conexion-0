@@ -83,6 +83,7 @@ def iniciar_servidor():
             
             # cuando un cliente se conecta, creamos un hilo para manejarlo con la funcion gestionar
             hilo_cliente = threading.Thread(target=gestionar_cliente, args=(cliente_socket, direccion_cliente))
+            # el hilo se cierra automa.. cuando el programa termina. sirve para que no queden hilos bloqueados
             hilo_cliente.daemon = True
             hilo_cliente.start()
             
